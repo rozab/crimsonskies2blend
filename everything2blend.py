@@ -20,8 +20,8 @@ parser.add_argument(
     type=lambda value: Path(value).resolve(strict=True),
     help="Path to your Blender executable")
 parser.add_argument(
-    "--zips"
-    metavar="FOLDER"
+    "--zips",
+    metavar="FOLDER",
     dest="data_folder",
     default=".",
     type=lambda value: Path(value).resolve(strict=True),
