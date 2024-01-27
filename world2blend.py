@@ -1,5 +1,9 @@
-import bpy
-import bmesh
+try:    
+    import bpy
+    import bmesh
+except ImportError:
+    print("This scripts are supposed to be run inside blender! It's much easier to just run everything2blend.py, which will handle that tricky stuff for you.")
+    exit(1)
 
 import json
 import os.path
