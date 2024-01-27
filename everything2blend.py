@@ -1,6 +1,5 @@
 import argparse
 import json
-import os
 from pathlib import Path
 import subprocess as sub
 from tempfile import TemporaryDirectory
@@ -21,21 +20,12 @@ parser.add_argument(
     type=lambda value: Path(value).resolve(strict=True),
     help="Path to your Blender executable")
 parser.add_argument(
-    "data_folder",
+    "--zips"
+    metavar="FOLDER"
+    dest="data_folder",
+    default=".",
     type=lambda value: Path(value).resolve(strict=True),
     help="Folder containing planes.zip and textures.zip")
-parser.add_argument(
-    "--unzbd",
-    metavar="EXE",
-    dest="unzbd",
-    type=lambda value: Path(value).resolve(strict=True),
-    help="Path to unzbd executable (will automate extraction if supplied). Requires --zbd")
-parser.add_argument(
-    "--zbd",
-    metavar="FOLDER",
-    dest="zbd",
-    type=lambda value: Path(value).resolve(strict=True),
-    help="Path to ZBD folder in game files")
 parser.add_argument(
     "--out",
     metavar="FOLDER",
@@ -43,6 +33,18 @@ parser.add_argument(
     default=".",
     type=lambda value: Path(value).resolve(strict=True),
     help="Folder to save .blend files")
+parser.add_argument(
+    "--zbd",
+    metavar="FOLDER",
+    dest="zbd",
+    type=lambda value: Path(value).resolve(strict=True),
+    help="Path to ZBD folder in game files")
+parser.add_argument(
+    "--unzbd",
+    metavar="EXE",
+    dest="unzbd",
+    type=lambda value: Path(value).resolve(strict=True),
+    help="Path to unzbd executable (will automate extraction if supplied). Requires --zbd")
 parser.add_argument(
     "--skip-planes",
     action="store_true",
