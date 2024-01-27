@@ -1,6 +1,6 @@
 ## What is this?
 
-These scripts can help you extract assets from the PC game Crimson Skies (2000). They use [tobywf's mech3ax](https://github.com/TerranMechworks/mech3ax) to extract useful data from proprietary `.zbd` files, and then assemble these into `.blend` files which you can use in your own projects.
+These scripts can help you extract assets from the PC game Crimson Skies (2000). They use [tobywf's mech3ax](https://github.com/TerranMechworks/mech3ax) to extract useful data from proprietary `.zbd` files, and then assemble these into `.blend` files which you can use in your own projects. They are mostly based on his work.
 
 ![Exported Devastator model shown in Blender](devastator.jpg)
 
