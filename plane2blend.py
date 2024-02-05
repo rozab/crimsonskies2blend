@@ -26,7 +26,7 @@ TEXTURE_SUBSTITUTIONS = {
     "bri_taillogo.png": "14medusa_logo1.png",
     "bri_winglogo.png": "14medusa_logo1.png",
     "dev_taillogo.png": "fhunter_logo2.png",
-    "dev_winglogo.png": "fhunter_logo4_1.png",
+    "dev_winglogo.png": "07fhunter_logo1.png",
     "fir_taillogo.png": "10hknights_logo2.png",
     "fir_winglogo.png": "hollywoodlogo.png",
     "fur_taillogo.png": "bswan_logo1.png",
