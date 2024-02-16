@@ -80,7 +80,7 @@ class MeshFactory:
         color_layer = bm.loops.layers.color.new("color")
 
         for v in m["vertices"]:
-            bm.verts.new((-v["x"], v["z"], v["y"]))
+            bm.verts.new((v["x"], -v["z"], v["y"]))
         bm.verts.ensure_lookup_table()
         bm.verts.index_update()
 
@@ -267,9 +267,9 @@ def create_object_tree(i, mesh_factory, col):
 
     if "transformation" in v and v["transformation"]:
         trans = v["transformation"]["translation"]
-        obj.location = (-trans["x"], trans["z"], trans["y"])
+        obj.location = (trans["x"], -trans["z"], trans["y"])
         rot = v["transformation"]["rotation"]
-        obj.rotation_euler = (-rot["x"], rot["z"], rot["y"])
+        obj.rotation_euler = (rot["x"], -rot["z"], rot["y"])
     
     for ci in v["children"]:
         create_object_tree(ci, mesh_factory, col).parent = obj
