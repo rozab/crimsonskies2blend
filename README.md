@@ -8,7 +8,7 @@ The scripts are written to work on Windows with an installed copy of the game. Y
 
 ## How do I work this?
 
-Of course you will need a copy of Crimson Skies. I can't help you with this. Install the game as normal.
+Of course you will need a copy of Crimson Skies. Install the game as normal. The scripts assume the game is installed to `C:\Program Files (x86)\Microsoft Games\Crimson Skies`, but this can be configured.
 
 Then you can download the code in this repo. Click the green 'Code' button and then 'Download ZIP'. You should unzip it after.
 
