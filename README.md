@@ -55,3 +55,16 @@ options:
   --skip-planes  Don't generate .blends for planes
   --skip-levels  Don't generate .blends for levels
 ```
+
+## BONUS ROUND: .rof extraction
+
+You may have noticed only one skin is available for each plane, whereas many different ones are used in-game. These skins are actually dynamically generated from the configuration for each faction, but the necessary files for doing this are hidden away in another proprietary archive file, `crimson.rof`.
+
+There is a script for unpacking this archive:
+```
+> python extract_rof.py
+```
+And then another for decoding the texture files within into something more useful:
+```
+> python extract_bm.py
+```
