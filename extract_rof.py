@@ -65,4 +65,4 @@ with open(ROF_PATH, mode='rb') as f:
     parse_entry(root, f)
     out_path = Path(root["name"])
     if out_path.is_dir(): shutil.rmtree(out_path)
-    write_tree_to_disk(root, Path(), f)
+    write_tree_to_disk(root, Path("data"), f)

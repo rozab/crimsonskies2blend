@@ -42,7 +42,7 @@ parser.add_argument(
     "--data",
     metavar="FOLDER",
     dest="data_folder",
-    default=Path("unzbd_output"),
+    default=Path("data"),
     type=lambda value: Path(value).resolve(strict=True),
     help="Folder for intermediate data")
 parser.add_argument(
