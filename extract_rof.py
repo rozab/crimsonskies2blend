@@ -6,6 +6,8 @@ import zlib
 IS_DIR_FLAG = 0x1
 IS_COMPRESSED_FLAG = 0x2
 
+ROF_PATH = r"C:\Program Files (x86)\Microsoft Games\Crimson Skies\GOSDATA\ASSETS\crimson.rof"
+
 def unpack(format, f):
     res = struct.unpack(format, f.read(struct.calcsize(format)))
     return res[0] if len(res) == 1 else res
@@ -58,8 +60,8 @@ def write_tree_to_disk(entry, cwd, f):
             f.seek(entry["start"])
             new_file.write(f.read(entry["length"]))
 
-with open("rof/crimson.rof", mode='rb') as f:
-    root = {"start": 0, "name": "rof_root", "is_dir": True}
+with open(ROF_PATH, mode='rb') as f:
+    root = {"start": 0, "name": "rof_output", "is_dir": True}
     parse_entry(root, f)
     out_path = Path(root["name"])
     if out_path.is_dir(): shutil.rmtree(out_path)
