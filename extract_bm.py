@@ -4,12 +4,7 @@ import struct
 from PIL import Image
 
 def save_image(fmt, size, bytes, filename):
-    if fmt == "L":
-        alpha = Image.frombytes(fmt, size, bytes)
-        im = Image.new("L", size, color=255)
-        im.putalpha(alpha)
-    else:
-        im = Image.frombytes(fmt, size, bytes)
+    im = Image.frombytes(fmt, size, bytes)
     im.transpose(method=Image.Transpose.FLIP_TOP_BOTTOM).save(filename)
 
 for path in Path().rglob("*.bm"):

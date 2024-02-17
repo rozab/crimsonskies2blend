@@ -68,3 +68,13 @@ And then another for decoding the texture files within into something more usefu
 ```
 > python extract_bm.py
 ```
+
+Now we can set a paintjob for a certain plane model, and even specify custom colors if we want:
+```
+> python set_paintjob.py fury studio --colors "#076466" "#191919" "#bf9a00"
+```
+This command will overwrite the plane textures in your data folder. To prevent them being overwritten again when generating `.blend`s, pass the `--skip-unzbd` flag to `everything2blend.py`:
+```
+> python everything2blend.py --skip-levels --skip-unzbd
+```
+![Exported Fury model with a custom paintjob](fury.jpg)
