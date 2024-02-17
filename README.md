@@ -17,8 +17,6 @@ Then you will need to install some free software:
 - [Python](https://www.python.org/downloads/), a programming language, for running the script
 - [Blender](https://www.blender.org/download/), a program for working with 3D models
 
-And lastly, you need a copy of mech3ax, the program that does the actual extracting. [Download the latest release from here](https://github.com/TerranMechworks/mech3ax/releases/latest). You only need the `.zip` file which matches your operating system. Unzip it and take a note of where the `unzbd.exe` file ends up.
-
 Now you can open a command line in the folder you put my scripts in. You can do this by typing `cmd` into the address bar of that folder and hitting enter.
 
 Install one last dependency from the command line:
@@ -34,7 +32,7 @@ Now we can run our script:
 
 It's in one of those `.blend` files that just appeared, go check it out in Blender. Each file contains all the data it was possible to extract for that plane or level, so there will be some stuff you aren't interested in. The script tries to hide the boring stuff, but you can make it appear again with the eye buttons in the right-hand pane of Blender.
 
-There are only minor issues remaining with these files. A few meshes are borked, some materials are incorrect and one or two textures are missing. But the assets are defiitely good enough to work with.
+There are only minor issues remaining with these files. A few meshes are borked, some materials are incorrect and one or two textures are missing. But the assets are definitely good enough to work with.
 
 ## But how can I - 
 

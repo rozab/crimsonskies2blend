@@ -2,8 +2,7 @@ import argparse
 import json
 from pathlib import Path
 import subprocess as sub
-from tempfile import TemporaryDirectory
-import time
+import urllib.request
 from zipfile import ZipFile
 
 try:
@@ -13,6 +12,7 @@ except ImportError:
 
 DEFAULT_BLENDER_LOCATION = r"C:\Program Files\Blender Foundation\Blender 3.5\blender.exe"
 DEFAULT_CS_LOCATION = r"C:\Program Files (x86)\Microsoft Games\Crimson Skies"
+MECH3AX_URL = "https://github.com/TerranMechworks/mech3ax/releases/download/v0.6.0/mech3ax-v0.6.0-x86_64-pc-windows-msvc.zip"
 
 BLENDER_ARGS = ["--background", "--factory-startup", "--python-use-system-env", "--python"]
 CHAPTERS = ["c1", "c1b", "c1c", "c2", "c2b", "c3", "c4", "c5"]
@@ -71,9 +71,16 @@ except FileNotFoundError as e:
     print(e)
     exit(1)
 
-
 args.data_folder.mkdir(exist_ok=True)
 args.blend_folder.mkdir(exist_ok=True)
+
+if not args.unzbd: args.unzbd = next(args.data_folder.rglob("unzbd.exe"), Path("unzbd.exe"))
+if not args.unzbd.is_file():
+    print("Downloading unzbd.exe from GitHub...")
+    urllib.request.urlretrieve(MECH3AX_URL, args.data_folder / "mech3ax.zip")
+    with ZipFile(args.data_folder / "mech3ax.zip") as z:
+        z.extractall(args.data_folder)
+    args.unzbd = next(args.data_folder.rglob("unzbd.exe"))
 
 if not args.unzbd:
     print("Must specify unzbd.exe location with --unzbd")
