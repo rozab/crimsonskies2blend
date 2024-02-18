@@ -5,6 +5,11 @@ from zipfile import ZipFile
 
 from PIL import Image, ImageChops, ImageColor
 
+# TODO:
+# blo_cock -> bld_gencockpit
+# blo_spinner -> ?
+# kes_spinner -> ?
+
 PLANE_PREFIXES = {
     "HOPLITE": "AGYRO",
     "BALMORAL": "BAL",
@@ -80,6 +85,11 @@ if not faction_dir.is_dir():
     print(f"ERROR: Valid .rof output not found")
     exit(1)
 
+unzbd_output = args.data_folder / "unzbd_output"
+if not unzbd_output.is_dir():
+    print(f"ERROR: couldn't find unzbd output at {unzbd_output}")
+    exit(1)
+
 if args.colors:
     try:
         args.colors = list(map(ImageColor.getrgb, args.colors))
@@ -95,8 +105,8 @@ if not textures:
     print(f"ERROR: Invalid combination of plane and faction")
     exit(1)
 
-with ZipFile(args.data_folder / "textures.zip") as z:
-        z.extractall(args.data_folder / "textures")
+with ZipFile(unzbd_output / "textures.zip") as z:
+        z.extractall(unzbd_output / "textures")
 
 for t in textures:
     base = Image.open(t.parent / (t.stem + "-base.png"))
@@ -117,8 +127,11 @@ for t in textures:
     output = Image.alpha_composite(output, specular)
     output = output.convert("RGB")
 
-    with open(args.data_folder / "textures" / f"{t.stem.lower()}.png", "wb") as f:
+    if t.stem == "DEV_FUSALAGE1":
+        t = t.parent / "dev_fusalage.bm"
+
+    with open(unzbd_output / "textures" / f"{t.stem.lower()}.png", "wb") as f:
         print(f"Saving {t.stem.lower()}.png")
         output.save(f, format="png")
 
-shutil.make_archive(args.data_folder / "textures", "zip", args.data_folder / "textures")
+shutil.make_archive(unzbd_output / "textures", "zip", unzbd_output / "textures")
