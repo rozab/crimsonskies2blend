@@ -25,7 +25,7 @@ Install one last dependency from the command line:
 ```
 Now we can run our script:
 ```
-> python everything2blend.py"
+> python everything2blend.py
 ```
 
 ## Where is that large automobile?
